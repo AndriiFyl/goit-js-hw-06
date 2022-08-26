@@ -2,7 +2,7 @@
 
 // Посчитает и выведет в консоль количество категорий в ul#categories,
 //     то есть элементов li.item.
-// Для каждого элемента li.item в списке ul#categories, найдет и 
+// Для каждого элемента li.item в списке ul#categories, найдет и
 // выведет в консоль текст заголовка элемента(тега < h2 >) и количество элементов в
 // категории(всех вложенных в него < li >).
 // В результате, в консоли будут выведены такие сообщения.
@@ -18,6 +18,62 @@
 // Category: Technologies
 // Elements: 5
 
+// Декларативний метод
+1
+const menuItemsByClass = document.querySelectorAll(".item");
+console.log(`Number of categories: ${menuItemsByClass.length}`);
+
+// 2
+menuItemsByClass.forEach(function (element) {
+    console.log(`Category: ${element.firstElementChild.textContent}`);
+    console.log(`Elements: ${element.lastElementChild.children.length}`);
+});
+
+
+// Декларативний метод з коментарями==========================
+1
+// // // Через селектор .item отримуємо посилання на всі елементи з даним селектором
+// // // [li.item, li.item, li.item] - псевдомасив
+// const menuItemsByClass = document.querySelectorAll(".item");
+// // // Оскільки це масив, то можемо за домогою властивості .length - знайти його довжину
+// // // - відповідно кількість даних елементів
+// console.log(`Number of categories: ${menuItemsByClass.length}`);
+
+// // 2
+// // Методом forEach переберемо кожен елемент масиву - li.item
+// menuItemsByClass.forEach(function (element) {
+//     // В Category запишемо назву кожної категорії: через element звертаємось
+//     // до кожнго елемента li.item
+//     // через .firstElementChild звертаємось до першої дитини кожного елемента
+//     // li.item, тобто до кожного <h2>
+//     // через  .textContent знаходимо текстовий контент кожного <h2>
+//     console.log(`Category: ${element.firstElementChild.textContent}`);
+
+//     // В Elements запишемо кількість елементів в кожній категорії
+//     // через element.lastElementChild знову звертаємось до кожного <h2>
+//     // через .children отримуємо масив усіх дітей елемента <h2>
+//     // через .length знаходимо довжину кожного із масивів, відпвідно кількість
+//     // елементів в кожній категорії
+//     console.log(`Elements: ${element.lastElementChild.children.length}`);
+// });
+
+
+
+
+// Імперативний метод
+// 1
+// const menuItemsByClass = document.querySelectorAll(".item");
+// console.log(`Number of categories: ${menuItemsByClass.length}`);
+
+// // 2
+// for (let menuItem of menuItemsByClass) {
+//     const categoryNameEl = (menuItem.children)[0].textContent;
+//     console.log(`Category: ${categoryNameEl}`);
+
+// // 3
+//     const amountofElementsEl = menuItem.children[1].children.length;
+//     console.log(`Elements: ${amountofElementsEl}`);
+// }
 
 
 
@@ -32,9 +88,6 @@
 // // Виводимо у консоль результат довжини псевдомасиву,
 // // відповідно дізнаємось кількість категорій у списку
 // console.log(`Number of categories: ${firstChildrenOfListEl.length}`)
-
-
-
 
 // // Отримуємо псевдомасив усіх елементів з классом item  // [li.item, li.item, li.item]
 // const allListEl = document.querySelectorAll('.item');
@@ -100,23 +153,6 @@
 // }
 
 
-
-// Рішення V2 без коментарів===========================================================
-// ======================================================================================
-
-// 1
-const menuItemsByClass = document.querySelectorAll(".item");
-console.log(`Number of categories: ${menuItemsByClass.length}`);
-
-// 2
-for (let menuItem of menuItemsByClass) {
-    const categoryNameEl = (menuItem.children)[0].textContent;
-    console.log(`Category: ${categoryNameEl}`);
-
-// 3
-    const amountofElementsEl = menuItem.children[1].children.length;
-    console.log(`Elements: ${amountofElementsEl}`);
-}
 
 
 

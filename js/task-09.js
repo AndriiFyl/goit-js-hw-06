@@ -19,8 +19,9 @@ buttonEl.addEventListener('click', (event) => {
   // Виконуємо функцію, що заипше в textEl.textContent значення
   // рандомного кольору
   // і змінить колір елемента <body> - а саме <div>
-  textEl.textContent = getRandomHexColor();
-  widgetEl.style.backgroundColor = getRandomHexColor();
+  const randomColor = getRandomHexColor();
+  textEl.textContent = randomColor;
+  widgetEl.style.backgroundColor = randomColor;
 });
 
 

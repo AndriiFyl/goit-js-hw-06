@@ -15,13 +15,14 @@ function onBlur(event) {
     const inp = event.currentTarget;
     const inpLength = Number(inp.dataset.length);
 
-    if (inp.value.length === inpLength) {
-        inp.classList.remove('invalid');
-        inp.classlist.add('valid');
-    }
-    else {
-        inp.classList.remove('valid');
+    if (inp.value.length !== inpLength) {
         inp.classList.add('invalid');
+        inp.classList.remove('valid');
     }
 
+   else {
+        inp.classList.add('valid');
+        inp.classList.remove('invalid');
+    }
+ 
 }
